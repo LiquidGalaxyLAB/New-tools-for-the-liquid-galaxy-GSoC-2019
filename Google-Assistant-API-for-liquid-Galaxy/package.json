@@ -1,0 +1,33 @@
+{
+  "name": "google-assistant-api-for-liquid-galaxy",
+  "version": "0.1.0",
+  "description": "Google Assistant API to control the liquid Galaxy. GSOC 2019 project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xemyst/Google-Assistant-API-for-liquid-Galaxy.git"
+  },
+  "keywords": [
+    "Google",
+    "Assistant",
+    "DialogFlow",
+    "Liquid Galaxy"
+  ],
+  "author": "Eric Monné Mesalles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xemyst/Google-Assistant-API-for-liquid-Galaxy/issues"
+  },
+  "homepage": "https://github.com/xemyst/Google-Assistant-API-for-liquid-Galaxy#readme",
+  "dependencies": {
+    "actions-on-google": "^2.10.0",
+    "axios": "^0.19.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "form-data": "^2.5.0",
+    "ssh2": "^0.8.5"
+  }
+}

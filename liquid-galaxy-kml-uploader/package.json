@@ -1,0 +1,32 @@
+{
+  "name": "lgkmluploader",
+  "version": "0.8",
+  "description": "API to send our KML and create them, and Send to the Liquid Galaxy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/Xemyst/liquid-galaxy-kml-uploader.git"
+  },
+  "keywords": [
+    "KML",
+    "\"Liquid",
+    "Galaxy\""
+  ],
+  "author": "Eric Monne Mesalles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/Xemyst/liquid-galaxy-kml-uploader/issues"
+  },
+  "homepage": "https://gitlab.com/Xemyst/liquid-galaxy-kml-uploader#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-formidable": "^1.2.0",
+    "kmlwriter":"*",
+    "swagger-ui-express": "^4.0.7"
+  }
+}

@@ -1,0 +1,8 @@
+test.js
+node_modules/
+.env*
+/node_modules/
+/projectPlanning/
+kml/
+
+*.kml

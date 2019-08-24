@@ -1,0 +1,576 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Liquig galaxy kml uploader Documentation",
+    "version": "1.0.0",
+    "title": "Kml Server Uploader",
+    "license": {
+      "name": "MIT",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "http://10.33.34.109:8080",
+  "basePath": "/kml",
+  "tags": [
+    {
+      "name": "Builder",
+      "description": "All building kml calls"
+    },
+    {
+      "name": "Manage",
+      "description": "Access to Petstore orders"
+    },
+    {
+      "name": "View Sync"
+    },
+    {
+      "name": "Fly To"
+    },
+    {
+      "name": "System"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/builder/addplacemark": {
+      "post": {
+        "tags": [
+          "Builder"
+        ],
+        "summary": "Add a new pet to the store",
+        "description": "Add a placemark into the current kml",
+        "operationId": "addPlacemark",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "The placemark was created",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Placemark"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/builder/addphoto": {
+      "post": {
+        "tags": [
+          "Builder"
+        ],
+        "summary": "Add image to the kml",
+        "description": "Multiple status values can be provided with comma separated strings",
+        "operationId": "findPetsByStatus",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "The image was added",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Photo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    },
+    "/builder/concatenate": {
+      "get": {
+        "description": "Add a kml into the current kml that you are building",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "The kml file",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Kml"
+            }
+          }
+        ],
+        "tags": [
+          "Builder"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/builder/Orbit": {
+      "post": {
+        "tags": [
+          "Builder"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        },
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "The kml file",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Orbit"
+            }
+          }
+        ]
+      }
+    },
+    "/builder/deleteTag/{tag}/{id}": {
+      "delete": {
+        "tags": [
+          "Builder"
+        ],
+        "parameters": [
+          {
+            "name": "tag",
+            "in": "path",
+            "description": "The tag name that you want to delete",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the tag to delete",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/manage/new": {
+      "post": {
+        "summary": "Start a new KML",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "The name for the new kml",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "Manage"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/manage/current": {
+      "get": {
+        "tags": [
+          "Manage"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/manage/list": {
+      "get": {
+        "tags": [
+          "Manage"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/manae/clean": {
+      "get": {
+        "tags": [
+          "Manage"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/manage/{id}": {
+      "get": {
+        "tags": [
+          "Manage"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of the kml that you want to see",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Manage"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of the kml that you want to delete",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/manage": {
+      "get": {
+        "tags": [
+          "Manage"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/manage/balloon/{id}/{newState}": {
+      "get": {
+        "tags": [
+          "Manage"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The name of the tour to init",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "newState",
+            "in": "path",
+            "description": "The name of the tour to init",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/manage/initTour/{name}": {
+      "get": {
+        "tags": [
+          "Manage"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "The name of the tour to init",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/manage/upload": {
+      "post": {
+        "tags": [
+          "Manage"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/system/{exec}": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "parameters": [
+          {
+            "name": "exec",
+            "in": "path",
+            "description": "The bash command to execute",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    },
+    "/viewsync/master": {
+      "get": {
+        "tags": [
+          "View Sync"
+        ],
+        "summary": "get the current master kml",
+        "description": "returns the current master kml to be displayed in the liquid galaxy",
+        "produces": [
+          "application/vnd.google-earth.kml+xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/viewsync/slave": {
+      "get": {
+        "tags": [
+          "View Sync"
+        ],
+        "summary": "get the current slave kml",
+        "description": "returns the current slave kml to be displayed in the liquid galaxy",
+        "produces": [
+          "application/vnd.google-earth.kml+xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/flyto/{longitude}/{latitude}/{range}": {
+      "post": {
+        "tags": [
+          "Fly To"
+        ],
+        "summary": "fly to a position",
+        "description": "Moves the liquid galaxy into the asked position",
+        "operationId": "flyto",
+        "parameters": [
+          {
+            "name": "longitude",
+            "in": "path",
+            "description": "the longitude of the camera",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "latitude",
+            "in": "path",
+            "description": "the latitude of the camera",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "range",
+            "in": "path",
+            "description": "The range of the camera",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Placemark": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "latitude": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "range": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "altitudeMode": {
+          "type": "string",
+          "default": "relativeToGround",
+          "enum": [
+            "relativeToGround",
+            "relativeToSea"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "description": "The bubble text"
+        },
+        "icon": {
+          "type": "string",
+          "description": "the path to the icon"
+        },
+        "scale": {
+          "type": "integer",
+          "description": "the scale of the icon"
+        }
+      }
+    },
+    "Photo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "fCorner": {
+          "type": "string",
+          "description": "The down-left, corner. The data need to be in [lon,lat,rang] format"
+        },
+        "sCorner": {
+          "type": "string",
+          "description": "The down-right, corner. The data need to be in [lon,lat,rang] format"
+        },
+        "tCorner": {
+          "type": "string",
+          "description": "The top-right, corner. The data need to be in [lon,lat,rang] format"
+        },
+        "ftCorner": {
+          "type": "string",
+          "description": "The top-left, corner. The data need to be in [lon,lat,rang] format"
+        },
+        "photo": {
+          "type": "object",
+          "format": "png, jpg"
+        }
+      }
+    },
+    "Kml": {
+      "type": "object",
+      "properties": {
+        "kml": {
+          "type": "object",
+          "format": "kml"
+        }
+      }
+    },
+    "Orbit": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "string"
+        },
+        "range": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

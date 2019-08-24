@@ -3,6 +3,10 @@ Here you will find the split repos:
 * [Liquid Galaxy KML API](https://github.com/LiquidGalaxyLAB/liquid-galaxy-kml-uploader)
 * [Google Assistant API for liquid Galaxy]()
 
+You will find the installation instructions in the readme of both root directories
+
+
+
 ## Liquid Galaxy KML API
 
 The system will interact over the liquid galaxy using a KML with a network link.
@@ -17,7 +21,10 @@ You can build new KML and concatenate your own kmls to the current one.
 
 But if you use the upload call, you will just be able to display this one
 
-## Google Assistant API for Liquid-Galaxy 
+## Google Assistant API for Liquid-Galaxy
+
+Voice implementation of the basic controls of liquid galaxy, using dialogflow.
+
 
 ### Requirements:
 * [Ngrok](https://ngrok.com/) to connect the dialog flow to the webhook
